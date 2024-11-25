@@ -1,0 +1,10 @@
+on break:
+	if gamemode of player is survival:
+		cancel drops
+		give drops of block using tool to player
+		set event-block to air
+	else:
+		cancel drops
+		set event-block to air
+
+		
