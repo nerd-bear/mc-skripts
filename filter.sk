@@ -1,0 +1,4 @@
+on chat:
+    if message contains "nigga" or "nigger" or "retard" or "n i g g a" or "n i g g e r":
+        cancel event
+        send "&cThat word is not allowed here!" to player
