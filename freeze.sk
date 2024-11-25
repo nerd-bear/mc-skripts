@@ -1,0 +1,28 @@
+fcommand /freeze <player> <number>:
+    permission: op
+    trigger:
+        set {_target} to arg-1
+        set {_duration} to arg-2
+        if {_target} is not a player:
+            stop
+        if {_duration} < 1:
+            stop
+        if {frozen::%{_target}%} is set:
+            stop
+        set {frozen::%{_target}%} to true
+        apply slowness 255 to {_target} for {_duration}*1 seconds
+        play sound "entity.player.hurt_freeze" with volume 3 to {_target}
+        wait {_duration}*1 seconds
+        if {frozen::%{_target}%} is set:
+            delete {frozen::%{_target}%}
+
+command /unfreeze <player>:
+    permission: op
+    trigger:
+        set {_target} to arg-1
+        if {_target} is not a player:
+            stop
+        if {frozen::%{_target}%} is not set:
+            stop
+        delete {frozen::%{_target}%}
+        remove slowness from {_target}
