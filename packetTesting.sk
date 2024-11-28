@@ -1,6 +1,0 @@
-command /packet
-    trigger:
-        set {-packet} to raw metadata packet
-        add data from "fire true" to packet {-packet}
-        add data from "glowing true" to packet {-packet}
-        send packet {-packet} to all players

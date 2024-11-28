@@ -1,0 +1,11 @@
+command /glow-packet-send
+    trigger:
+        set {-packet} to raw metadata packet
+        add data from "glowing true" to packet {-packet}
+        send packet {-packet} to all player
+
+command /fire-packet-send
+    trigger:
+        set {-packet} to raw metadata packet
+        add data from "fire true" to packet {-packet}
+        send packet {-packet} to player
