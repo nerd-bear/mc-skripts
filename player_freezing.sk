@@ -1,4 +1,4 @@
-fcommand /freeze <player> <number>:
+command /freeze <player> <number>:
     permission: op
     trigger:
         set {_target} to arg-1
