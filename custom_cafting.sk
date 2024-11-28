@@ -1,7 +1,3 @@
-options:
-
-
-
 command /admin-craft-gui:
     permission: op
     trigger:
