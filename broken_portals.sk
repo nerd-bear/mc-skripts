@@ -1,0 +1,17 @@
+command set-portal <destenation>:
+    trigger:
+        set {portal-location} to location of player
+        send "&aset the current portal location to your location!" to player
+
+command del-portal:
+    trigger:
+        set {portal-location} to null
+        send "&aDeleted the current portal location!" to player
+
+command tp-portal:
+    trigger:
+        tp player to {portal-location} 
+        send "&aTeleported to the current portal location!" to player
+
+draw 250 of flame particle using dustOption(purple, 3) at {_rg%{_x}%} with offset vector(2.5,2.5,2.5) with extra 0
+draw 250 flame at{} } with offset vector(1,1,1) with extra 0
