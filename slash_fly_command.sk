@@ -10,10 +10,10 @@ options:
         flying-deactivation-message: &cFlight mode disabled.
 
 command /fly:
-    aliases: f, flight, flying, fl # Different commands players can run to activate this command
+    aliases: creative-fly, flight # Different commands players can run to activate this command
     description: Toggles flight mode for the player. # Sets description of the flight command
     executable by: players # Only players are allowed to run this command
-    permission: itemedit.rename
+    permission: server_name.fly
     trigger:
         if "{@allowed-flying}" is true: # Check if flying is allowed globally
             if player is flying: # Check if player is already flying
