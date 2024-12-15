@@ -1,12 +1,14 @@
 on right click with stick:
     if name of player's tool is "&x&8&A&6&6&1&3E&x&7&B&7&7&1&5a&x&6&B&8&8&1&6r&x&5&C&9&9&1&8t&x&4&D&A&A&1&Ah&x&3&D&B&B&1&B &x&2&E&C&C&1&DW&x&1&F&D&D&1&Fa&x&0&F&E&E&2&0n&x&0&0&F&F&2&2d &8[&x&A&7&C&7&E&71&8]":
         if player has player's tool on cooldown:
-            send "<##DC143C>Error: <##E34234>Please wait 5 seconds before using your Earth Wand again!" to player
+            send action bar "<##E34234>Please wait 5 seconds before using your Earth Wand again!" to player
+            play sound "block.fire.extinguish" with volume 10 and pitch 1 to player
         else:
             if "%region at player%" contains "spawn":
                 cancel event
-                send "<##DC143C>Error: <##E34234>You can't use your wand here!" to player
+                send action bar "<##DC143C>Error: <##E34234>You can't use your wand here!" to player
                 stop
+            send action bar "&aSent Earth Explosion Attack!!!" to player
             play sound "entity.blaze.shoot" with volume 100 and pitch 1 to player
             set {_v} to vector from yaw player's yaw and pitch player's pitch
             set {_v}'s vector length to 0.5 
@@ -19,6 +21,5 @@ on right click with stick:
                             play sound "block.lava.pop" with volume 10 and pitch 1 at player
                             make player damage loop-entity by 70
                 set {_draw} to {_draw} ~ {_v}
-            # Create an explosion at the final position of {_draw}
-            create explosion at {_draw} with power 2 and no fire
+            create a safe explosion of force 10 at {_draw}
             set item cooldown of player's tool for player to 5 seconds
